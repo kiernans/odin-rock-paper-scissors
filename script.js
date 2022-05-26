@@ -13,7 +13,7 @@ let computerPlay = () => {
         default:
     }
     return compChoice;
-}
+};
 
 let playRound = (playerSelection, computerSelection) => {
     let result;
@@ -39,7 +39,7 @@ let playRound = (playerSelection, computerSelection) => {
         result = `It's a tie! You chose ${playerSelection} and they chose ${computerSelection}`;
     }
     return result;
-}
+};
 
 let game = () => {
     let result;
@@ -69,6 +69,6 @@ let game = () => {
     else winner = `You've tied lol`;
 
     return winner;
-}
+};
 
 
