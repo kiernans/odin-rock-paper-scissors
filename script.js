@@ -41,34 +41,19 @@ let playRound = (playerSelection, computerSelection) => {
     return result;
 };
 
-let game = () => {
-    let result;
-    let compWins = 0;
-    let playerWins = 0;
-    let fields;
-    let winner;
+const buttons = document.querySelectorAll('button');
 
-    for (let i = 0; i < 5; i++){
-        const playerSelection = prompt(`What's your choice?`).toLowerCase();
-        const computerSelection = computerPlay();
-        result = playRound(playerSelection, computerSelection);
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(playRound(button.textContent, computerPlay()));
+    });
+});
 
-        if (result === null) {
-            return;
-        }
+const container = document.querySelector('.container');
+const div = document.createElement('div');
+div.textContent = 'Results';
 
-        console.log(result);
-        fields = result.split(' ');
-        result = fields[1];
+container.appendChild(div);
 
-        if (result === 'Win!') playerWins++;
-        if (result === 'Lose!') compWins++;
-    }
-    if (playerWins > compWins) winner = 'You win!';
-    if (compWins > playerWins) winner = `You lose...`;
-    else winner = `You've tied lol`;
-
-    return winner;
-};
 
 
